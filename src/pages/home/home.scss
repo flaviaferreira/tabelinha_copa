@@ -2,9 +2,10 @@ page-home {
   ion-content {
     &.content-md {
       background-color: transparent;
-      background-image: url('/assets/imgs/background.jpg');
-      background-position: center;
-      background-size: 100%;
+      background-image: url('/assets/imgs/background.png');
+      background-position: center 45vh;
+      background-size: contain;
+      background-color: #008499;
     }
   }
 
