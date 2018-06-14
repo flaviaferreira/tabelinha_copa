@@ -7,47 +7,54 @@
 </ion-header>
 
 <ion-content>
-  <ion-list *ngFor="let rodada of rodada1; let last = last;">
-    <ion-label text-center class="title-data">
-      {{rodada.dia_semana}}, {{rodada.data_hora | date: 'dd/MM'}} {{rodada.data_hora | date: 'HH:mm'}}
-    </ion-label>
-    <ion-row>
-      <ion-col col-4>
-        <ion-list>
-          <img src={{rodada.bandeira_time1}} alt="">
-          <ion-row>
-            <ion-label class="time1">
-              {{rodada.time1}}
-            </ion-label>
-          </ion-row>
-        </ion-list>
-      </ion-col>
-
-      <ion-col col-4>
+  <ion-list *ngFor="let rodada of rodada1;">
+    <ion-list *ngFor="let day of rodada1; let lastDay = last;">
+      <ion-label text-center class="title-data">
+        {{day.value[0]['data_hora'] | date: 'd, EEEE'}}
+      </ion-label>
+      <ion-list *ngFor="let match of day.value;">
+        <ion-label text-center class="title-data">
+          {{match.data_hora | date: 'HH:mm'}}
+        </ion-label>
         <ion-row>
-          <ion-label>
-            {{rodada.placar_time1}}
-          </ion-label>
-          <ion-label text-center>
-            X
-          </ion-label>
-          <ion-label text-end>
-            {{rodada.placar_time2}}
-          </ion-label>
+          <ion-col col-4>
+            <ion-list>
+              <img src={{match.bandeira_time1}} alt="">
+              <ion-row>
+                <ion-label class="time1">
+                  {{match.time1}}
+                </ion-label>
+              </ion-row>
+            </ion-list>
+          </ion-col>
+    
+          <ion-col col-4>
+            <ion-row>
+              <ion-label>
+                {{match.placar_time1}}
+              </ion-label>
+              <ion-label text-center>
+                X
+              </ion-label>
+              <ion-label text-end>
+                {{match.placar_time2}}
+              </ion-label>
+            </ion-row>
+          </ion-col>
+    
+          <ion-col col-4>
+            <ion-list text-end>
+              <img src="{{match.bandeira_time2}}" alt="">
+              <ion-row>
+                <ion-label class="time2">
+                  {{match.time2}}
+                </ion-label>
+              </ion-row>
+            </ion-list>
+          </ion-col>
         </ion-row>
-      </ion-col>
-
-      <ion-col col-4>
-        <ion-list text-end>
-          <img src="{{rodada.bandeira_time2}}" alt="">
-          <ion-row>
-            <ion-label class="time2">
-              {{rodada.time2}}
-            </ion-label>
-          </ion-row>
-        </ion-list>
-      </ion-col>
-    </ion-row>
-    <ion-item-divider *ngIf="!last"></ion-item-divider>
+      </ion-list>
+      <ion-item-divider *ngIf="!lastDay"></ion-item-divider>
+    </ion-list>
   </ion-list>
 </ion-content>
