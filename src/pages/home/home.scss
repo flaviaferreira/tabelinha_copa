@@ -1,0 +1,31 @@
+page-home {
+  ion-content {
+    &.content-md {
+      background-color: transparent;
+      background-image: url('/assets/imgs/background.jpg');
+      background-position: center;
+      background-size: 100%;
+    }
+  }
+
+  .scroll-content {
+    text-align: center;  
+  }
+  
+  ion-card {
+    &.card-md {
+      margin: 1rem;
+      width: 40%;
+      height: 10rem;
+      display: inline-block;
+    }
+
+    button {
+      &.button-md {
+        height: 100%;
+        width: 100%;
+        white-space: normal;
+      }
+    }
+  }
+}

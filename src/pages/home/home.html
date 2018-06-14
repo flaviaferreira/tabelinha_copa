@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title text-center>
+      Tabelinha da Copa
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding-top>
+  <ion-card>
+    <button ion-button clear (click)="goToList('1')">Primeira Rodada</button>
+  </ion-card>
+  <ion-card>
+    <button ion-button clear disabled (click)="goToList('2')">Segunda Rodada</button>
+  </ion-card>
+  <ion-card>
+    <button ion-button clear disabled (click)="goToList('3')">Tericeira Rodada</button>
+  </ion-card>
+  <ion-card>
+    <button ion-button clear disabled>Oitavas de Final</button>
+  </ion-card>
+  <ion-card>
+    <button ion-button clear disabled>Quartas de Final</button>
+  </ion-card>
+  <ion-card>
+    <button ion-button clear disabled>Semi Final</button>
+  </ion-card>
+  <ion-card>
+    <button ion-button clear disabled>Final</button>
+  </ion-card>
+</ion-content>
