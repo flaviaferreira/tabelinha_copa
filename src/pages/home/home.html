@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title text-center>
+      Tabelinha da Copa
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngFor="let rodada of rodada1; let last = last;">
+    <ion-label text-center class="title-data">
+      {{rodada.dia_semana}}, {{rodada.data_hora | date: 'dd/MM'}} {{rodada.data_hora | date: 'HH:mm'}}
+    </ion-label>
+    <ion-row>
+      <ion-col col-4>
+        <ion-list>
+          <img src={{rodada.bandeira_time1}} alt="">
+          <ion-row>
+            <ion-label class="time1">
+              {{rodada.time1}}
+            </ion-label>
+          </ion-row>
+        </ion-list>
+      </ion-col>
+
+      <ion-col col-4>
+        <ion-row>
+          <ion-label>
+            {{rodada.placar_time1}}
+          </ion-label>
+          <ion-label text-center>
+            X
+          </ion-label>
+          <ion-label text-end>
+            {{rodada.placar_time2}}
+          </ion-label>
+        </ion-row>
+      </ion-col>
+
+      <ion-col col-4>
+        <ion-list text-end>
+          <img src="{{rodada.bandeira_time2}}" alt="">
+          <ion-row>
+            <ion-label class="time2">
+              {{rodada.time2}}
+            </ion-label>
+          </ion-row>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-item-divider *ngIf="!last"></ion-item-divider>
+  </ion-list>
+</ion-content>
