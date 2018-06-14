@@ -2,10 +2,9 @@ page-home {
   ion-content {
     &.content-md {
       background-color: transparent;
-      background-image: url('/assets/imgs/background.png');
+      background-image: url(../assets/imgs/background.png);
       background-repeat: no-repeat;
-      background-position: center 45vh;
-      background-size: contain;
+      background-position: calc(100% - 51%) calc(100% - -30px);
       background-color: #008499;
     }
   }
@@ -17,9 +16,10 @@ page-home {
   ion-card {
     &.card-md {
       margin: 1rem;
-      width: 40%;
-      height: 10rem;
+      width: 35%;
+      height: 8rem;
       display: inline-block;
+      border-radius: 5px;
     }
 
     button {
