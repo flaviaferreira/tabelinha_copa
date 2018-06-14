@@ -13,6 +13,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { ListPage } from '../pages/list/list';
 
 declare const webpackGlobalVars: any;
 registerLocaleData(localePt, 'pt');
@@ -20,7 +21,8 @@ registerLocaleData(localePt, 'pt');
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    ListPage
   ],
   imports: [
     BrowserModule,
@@ -32,7 +34,8 @@ registerLocaleData(localePt, 'pt');
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    ListPage
   ],
   providers: [
     StatusBar,

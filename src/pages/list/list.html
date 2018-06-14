@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title text-center>
+      {{parametroListagem}}ª Rodada
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngFor="let day of matches; let lastDay = last;">
+    <ion-label text-center class="title-data">
+      {{day.value[0]['data_hora'] | date: 'd, EEEE'}}
+    </ion-label>
+    <ion-list *ngFor="let match of day.value;">
+      <ion-label text-center class="title-data">
+        {{match.data_hora | date: 'HH:mm'}}
+      </ion-label>
+      <ion-row>
+        <ion-col col-4>
+          <ion-list>
+            <img src={{match.bandeira_time1}} alt="">
+            <ion-row>
+              <ion-label class="time1">
+                {{match.time1}}
+              </ion-label>
+            </ion-row>
+          </ion-list>
+        </ion-col>
+
+        <ion-col col-4>
+          <ion-row>
+            <ion-label>
+              {{match.placar_time1}}
+            </ion-label>
+            <ion-label text-center>
+              X
+            </ion-label>
+            <ion-label text-end>
+              {{match.placar_time2}}
+            </ion-label>
+          </ion-row>
+        </ion-col>
+
+        <ion-col col-4>
+          <ion-list text-end>
+            <img src="{{match.bandeira_time2}}" alt="">
+            <ion-row>
+              <ion-label class="time2">
+                {{match.time2}}
+              </ion-label>
+            </ion-row>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-list>
+    <ion-item-divider *ngIf="!lastDay"></ion-item-divider>
+  </ion-list>
+</ion-content>

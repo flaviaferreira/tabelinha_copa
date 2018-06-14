@@ -1,18 +1,22 @@
-import { ListPage } from './../list/list';
 import { Component } from '@angular/core';
-import { NavController, ToastController, Toast } from 'ionic-angular';
+import { NavController, ToastController, Toast, NavParams } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
 
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: 'page-list',
+  templateUrl: 'list.html'
 })
-export class HomePage {
-  public rodada1;
+export class ListPage {
+  public matches;
+  public parametroListagem;
   private toastInstance: Toast;
 
-  constructor(public navCtrl: NavController, public afDB: AngularFireDatabase, private toastCtrl: ToastController) {
-    this.get1Rodada().subscribe((data) => {
+  constructor(public navCtrl: NavController, 
+    public navParam: NavParams,
+    public afDB: AngularFireDatabase, 
+    private toastCtrl: ToastController) {
+    this.parametroListagem = this.navParam.data.param;
+    this.get1Rodada(this.parametroListagem).subscribe((data) => {
       let selectedDate;
       const groupedObj = data.reduce((prev, cur)=> {
         selectedDate = cur['data_hora'].split('T')[0];
@@ -23,16 +27,16 @@ export class HomePage {
         }
         return prev;
       }, {});
-      this.rodada1 = Object.keys(groupedObj).map(key => ({ key, value: groupedObj[key] }));
-      console.log(this.rodada1);
+      this.matches = Object.keys(groupedObj).map(key => ({ key, value: groupedObj[key] }));
+      console.log(this.matches);
     }, error => {
       console.log("error ", error);
       this.showToastr(error);
     });
   }
 
-  get1Rodada() {
-    return this.afDB.list("1_RODADA").valueChanges();
+  get1Rodada(param) {
+    return this.afDB.list(param + "_RODADA").valueChanges();
   }
 
   showToastr(message) {
@@ -44,9 +48,5 @@ export class HomePage {
       closeButtonText: 'Ok'
     });
     this.toastInstance.present();
-  }
-
-  goToList(param) {
-    this.navCtrl.push(ListPage, {param: param});
   }
 }
