@@ -17,15 +17,18 @@
     <button ion-button clear disabled (click)="goToList('3_RODADA', 'Terceira Rodada')">Tericeira Rodada</button>
   </ion-card>
   <ion-card>
-    <button ion-button clear disabled>Oitavas de Final</button>
+    <button ion-button clear disabled (click)="goToList('OITAVAS', 'Oitavas de Final')">Oitavas de Final</button>
   </ion-card>
   <ion-card>
-    <button ion-button clear disabled>Quartas de Final</button>
+    <button ion-button clear disabled (click)="goToList('QUARTAS', 'Quartas de Final')">Quartas de Final</button>
   </ion-card>
   <ion-card>
-    <button ion-button clear disabled>Semi Final</button>
+    <button ion-button clear disabled (click)="goToList('SEMI', 'Semi Final')">Semi Final</button>
   </ion-card>
   <ion-card>
-    <button ion-button clear disabled>Final</button>
+    <button ion-button clear disabled (click)="goToList('TERCEIRO', 'Terceiro Lugar')">Terceiro Lugar</button>
+  </ion-card>
+  <ion-card>
+    <button ion-button clear disabled (click)="goToList('FINAL', 'Final')">Final</button>
   </ion-card>
 </ion-content>
