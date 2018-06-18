@@ -13,7 +13,7 @@
 <ion-content>
   <ion-list *ngFor="let day of matches; let lastDay = last;">
     <ion-label text-center class="title-data">
-      {{day.value[0]['data_hora'] | date: 'd, EEEE'}}
+      {{day.value[0]['data_hora'] | date: 'dd/MM, EEEE'}}
     </ion-label>
     <ion-list *ngFor="let match of day.value;">
       <ion-label text-center class="title-data">
@@ -57,6 +57,6 @@
         </ion-col>
       </ion-row>
     </ion-list>
-    <ion-item-divider *ngIf="!lastDay"></ion-item-divider>
+    <ion-row *ngIf="!lastDay" class="divider"></ion-row>
   </ion-list>
 </ion-content>

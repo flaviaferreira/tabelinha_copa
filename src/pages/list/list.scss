@@ -1,10 +1,10 @@
-page-home {
+page-list {
   .title-data {
     padding: 1rem 1rem 0;    
   }
 
-  ion-label, ion-list {
-    margin: 0 !important;
+  .label-md, .list-md {
+    margin: 0;
   }
   
   ion-row {
@@ -38,5 +38,9 @@ page-home {
       }
     }
   }
-
+  
+  .divider {
+    border-bottom: 1px solid #e0e0e0;
+    margin: 1rem 0;
+  }
 }
