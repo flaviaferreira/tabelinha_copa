@@ -16,7 +16,7 @@
       {{day.value[0]['data_hora'] | date: 'dd/MM, EEEE'}}
     </ion-label>
     <ion-list *ngFor="let match of day.value;">
-      <ion-label text-center class="title-data">
+      <ion-label text-center class="title-hora">
         {{match.data_hora | date: 'HH:mm'}}
       </ion-label>
       <ion-row>

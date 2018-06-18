@@ -1,6 +1,11 @@
 page-list {
+  .title-data, .title-hora {
+    padding: 1rem 1rem 0;   
+  }
+
   .title-data {
-    padding: 1rem 1rem 0;    
+    font-weight: 500;
+    font-size: 15px; 
   }
 
   .label-md, .list-md {
